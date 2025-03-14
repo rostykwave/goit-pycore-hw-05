@@ -18,29 +18,21 @@ def parse_input(user_input: str) -> tuple[str, list[str]]:
 
 @input_error
 def add_contact(args: list[str], contacts: dict[str, str]) -> str:
-    # if len(args) != 2:
-    #     return "Invalid input. Use: add [name] [phone]"
     name, phone = args
     contacts[name] = phone
     return "Contact added."
 
 @input_error
 def change_contact(args: list[str], contacts: dict[str, str]) -> str:
-    # if len(args) != 2:
-    #     return "Invalid input. Use: change [name] [new_phone]"
     name, phone = args
     if name not in contacts:
-        # return "Contact not found."
         raise KeyError
     contacts[name] = phone
     return "Contact updated."
 
 @input_error
 def show_phone(args: list[str], contacts: dict[str, str]) -> str:
-    # if len(args) != 1:
-    #     return "Invalid input. Use: phone [name]"
     name = args[0]
-    # return contacts.get(name, "Contact not found.")
     return contacts[name] # Will raise a KeyError if the name is not found
 
 @input_error

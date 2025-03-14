@@ -1,7 +1,7 @@
 import sys
 from log_analyzer.loader import load_logs
 from log_analyzer.filters import filter_logs_by_level
-from log_analyzer.statistics import count_logs_by_level, display_log_counts
+from log_analyzer.statistics import count_logs_by_level, display_log_counts, display_filtered_logs
 
 def main():
     if len(sys.argv) < 2:
@@ -18,6 +18,10 @@ def main():
 
     if log_level:
         filtered_logs = filter_logs_by_level(logs, log_level)
+        if filtered_logs:
+            display_filtered_logs(filtered_logs, log_level)
+        else:
+            print(f"\nNo records found for level '{log_level.upper()}'.")
 
 
 if __name__ == "__main__":

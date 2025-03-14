@@ -13,3 +13,8 @@ def display_log_counts(counts: Dict[str, int]):
     print("-----------------|----------")
     for level in ["INFO", "DEBUG", "ERROR", "WARNING"]:
         print(f"{level.ljust(16)} | {counts.get(level, 0)}")
+
+def display_filtered_logs(logs: List[Dict[str, str]], level: str):
+    print(f"\nДеталі логів для рівня '{level.upper()}':")
+    for log in logs:
+        print(f"{log['date']} {log['time']} - {log['message']}")

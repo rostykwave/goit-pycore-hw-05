@@ -1,7 +1,7 @@
 import sys
 from log_analyzer.loader import load_logs
 from log_analyzer.filters import filter_logs_by_level
-from log_analyzer.statistics import count_logs_by_level
+from log_analyzer.statistics import count_logs_by_level, display_log_counts
 
 def main():
     if len(sys.argv) < 2:
@@ -13,6 +13,8 @@ def main():
 
     logs = load_logs(log_file)
     log_counts = count_logs_by_level(logs)
+
+    display_log_counts(log_counts)
 
     if log_level:
         filtered_logs = filter_logs_by_level(logs, log_level)

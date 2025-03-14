@@ -7,6 +7,8 @@ def count_logs_by_level(logs: List[Dict[str, str]]) -> Dict[str, int]:
         log_count[level] = log_count.get(level, 0) + 1
     
     return log_count
+# Альтернативний спосіб:
+#   return reduce(lambda acc, log: {**acc, log["level"]: acc.get(log["level"], 0) + 1}, logs, {})
 
 def display_log_counts(counts: Dict[str, int]):
     print("\nРівень логування | Кількість")

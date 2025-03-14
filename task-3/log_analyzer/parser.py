@@ -10,3 +10,5 @@ def parse_log_line(line: str) -> Dict[str, str]:
         "level": parts[2],
         "message": parts[3]
     }
+# Альтернативний спосіб:
+#   return dict(zip(["date", "time", "level", "message"], parts)) if len(parts) == 4 else {}
